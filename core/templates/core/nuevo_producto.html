@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<h2>Nuevo Producto</h2>
+
+<form action="" method="POST">{% csrf_token %}
+
+ 
+
+    {{ form|crispy }}
+   
+   
+
+    <input class="btn btn-primary btn-xs" type="reset" value="limpiar">
+    <input class="btn btn-primary btn-xs" type="submit" value="guardar">
+
+</form>
+
+{{ mensaje }}
+{% endblock %}
