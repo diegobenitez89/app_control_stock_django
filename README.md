@@ -2,7 +2,7 @@
 
 ## Tecnologias utilizadas
 
--Django==2.2.7
+*Django==2.2.7
 -django-crispy-forms==1.8.1
 -django-registration-redux==2.6
 -Pillow==6.2.1
