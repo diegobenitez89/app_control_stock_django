@@ -1,6 +1,6 @@
 # App de control Stock de productos
 
-#Tecnologias utilizadas
+##Tecnologias utilizadas
 
 Django==2.2.7
 django-crispy-forms==1.8.1
