@@ -22,7 +22,7 @@ def nuevo_producto(request):
     }
 
     if request.method == "POST":
-        form = ProductoForm(request.POST)
+        form = ProductoForm(request.POST, files=request.FILES)
         if form.is_valid():
             form.save()
             data['mensaje'] = "Guardado correctamente"
@@ -39,11 +39,11 @@ def modificar_producto(request, id):
 
 
     if request.method == "POST":
-        form = ProductoForm(data=request.POST, instance=producto)
+        form = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
         if form.is_valid():
             form.save()
             data['mensaje'] = "Modificado correctamente"
-            data['form']=form
+        data['form'] = ProductoForm(instance=Producto.objects.get(id=id))
 
     return render(request, 'core/modificar_producto.html', data)
 

@@ -5,7 +5,7 @@
 
 <h2>Modificar Producto</h2>
 
-<form action="" method="POST">
+<form action="" method="POST" enctype="multipart/form-data">
 {% csrf_token %}
     <table>
 
@@ -13,8 +13,8 @@
    
     </table>
 
-    <input type="reset" value="limpiar">
-    <input type="submit" value="Modificar">
+    <input class="btn btn-primary btn-xs" type="reset" value="limpiar">
+    <input class="btn btn-primary btn-xs" type="submit" value="Modificar">
     
 
 </form>
