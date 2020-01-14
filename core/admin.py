@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Seccion_producto, Producto
+from .forms import RegModelForm
+from .models import Seccion_producto, Producto, Registrado
 
 
 class ProductoAdmin(admin.ModelAdmin):
@@ -13,3 +14,14 @@ class ProductoAdmin(admin.ModelAdmin):
 admin.site.register(Seccion_producto)
 admin.site.register(Producto,ProductoAdmin)
 
+class AdminRegistrado(admin.ModelAdmin):
+    list_display = ["email","nombre","timestamp"]
+    form = RegModelForm
+    list_filter = ["timestamp"]
+    list_editable = ["nombre"]
+    search_fiellds = ["email","nombre"]
+
+
+    #class Meta:
+    #    model = Registrado
+admin.site.register(Registrado,AdminRegistrado)
