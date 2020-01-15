@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect
 from .models import Producto
 from .forms import ProductoForm
-
+from django.contrib.auth.decorators import login_required, permission_required
 
 def home(request):
     return render(request,'core/home.html')
 
-
+@login_required
 def listado_producto(request):
     productos = Producto.objects.all()
     data = {
@@ -14,7 +14,7 @@ def listado_producto(request):
     }
     return render(request,'core/lista_producto.html', data)
 
-
+@permission_required('core.add_producto')
 def nuevo_producto(request):
     data = {
         'form': ProductoForm()

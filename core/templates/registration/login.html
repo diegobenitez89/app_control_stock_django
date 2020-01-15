@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block content %}
+<div class='row'>
+<div class='col-sm-12 col-sm-offset-3'>
+<h2 class='text-align-center'><strong>Iniciar Sesión</strong></h2>
+<form method="post" action=".">
+  {% csrf_token %} 
+  {{ form|crispy }}
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input class="btn btn-primary btn-xs" type="submit" value="Entrar">
+            <input class="btn btn-primary btn-xs" type="reset" value="Borrar">
+            
+        </form>
+        <p>Si todavia no tenes cuenta. </p><a>Registrate</a> 
+        
+{% endblock %}
