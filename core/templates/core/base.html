@@ -63,7 +63,7 @@
         
         {% if user.is_authenticated %}
         
-        <a class="nav-link">Bienvenid@: {{ user.username}}</a>
+        <p class="nav-link">Bienvenid@:</p><a class="nav-link" style="color: rgb(43, 226, 186);">{{ user.username}}</a>
         <a class="nav-link" href="{% url 'logout' %}">Salir</a>
 
         {% else %}
@@ -78,12 +78,10 @@
   </header>
 
   <main role="main" class="inner cover">
-      <div>
+      <div class="container">
         {% block content %}
 
         {% endblock %}
-
-
       </div>
 
   </main>
