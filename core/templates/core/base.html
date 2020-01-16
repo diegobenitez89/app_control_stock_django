@@ -16,6 +16,8 @@
 
     <!-- Bootstrap core CSS -->
 <link href="{% static 'core/css/bootstrap.min.css' %}" rel="stylesheet" >
+<link href="{% static 'core/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
 
     <!-- Favicons -->
 <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -86,14 +88,48 @@
 
   </main>
 
-  <footer class="mastfoot mt-auto">
-    <div class="inner">
-      <p>App de control de stock for by <a href="https://api.whatsapp.com/send?phone=541163660588"target="_blank">Diego</p>
-    </div>
+  {% block footer %}   
+    <!-- Pié de página -->
+    <footer>
+      <div class="container">
+      <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+              <li class="list-inline-item">
+              <a href="https://api.whatsapp.com/send?phone=541163660588"target="_blank">
+                  <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-whatsapp fa-stack-1x fa-inverse"></i>
+                  </span>
+              </a>
+              </li>
+              <li class="list-inline-item">
+              <a href="https://github.com/diegobenitez89"target="_blank">
+                  <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+              </a>
+              </li>
+              <li class="list-inline-item">
+              <a href="https://linkedin.com/in/diego-benitez-247a9b124"target="_blank">
+                  <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+              </a>
+              </li>
+          </ul>
+          <p>Copyright &copy; 2020 - Diego Benitez</p>
+          </div>
+      </div>
+      </div>
   </footer>
-</div>
+{% endblock %}
+
 {% block javascript %}
 {% endblock %}
+
 <script src="js/basico.js"></script>
 </body>
 </html>
