@@ -28,6 +28,11 @@ html,
 body {
   height: 100%;
   background-color: #50858b;
+  
+  min-height: auto;
+  background-attachment: fixed;
+  background-size: cover;
+
 }
 
 body {
