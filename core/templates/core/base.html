@@ -1,136 +1,151 @@
-{% load static %}
 <!doctype html>
+
+{% load static %}
+{% block css %}
+{% endblock %}
+
 <html lang="es">
-  <head>
-    {% load static %}
-    {% block css %}
-    {% endblock %}
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.6">
-    <title>App Stock </title>
 
-    
+<head>
 
-    <!-- Bootstrap core CSS -->
-<link href="{% static 'core/css/bootstrap.min.css' %}" rel="stylesheet" >
-<link href="{% static 'core/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+  <title>App Stock </title>
 
-    <!-- Favicons -->
-<link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
-<link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
-<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
-<meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
-<meta name="theme-color" content="#563d7c">
+  <!---------- Bootstrap core CSS --------------->
+  <link href="{% static 'core/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'core/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+  <!---------- Custom styles for this template ----------->
+  <link href="{% static 'core/css/cover.css' %}" rel="stylesheet">
+
+</head>
+
+<body class="text-center">
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+    <header>
+      <div class="inner">
 
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-    <!-- Custom styles for this template -->
-    <link href="{% static 'core/css/cover.css' %}" rel="stylesheet">
-  </head>
-  <body class="text-center">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-
-  <header class="masthead mb-auto">
-    <div class="inner">
-
-      <h3 class="masthead-brand">App de stock</h3>
-      <br>
-
-      <nav class="nav nav-masthead justify-content-center">
-        <a class="nav-link" href="{% url 'home' %}">Home</a>
-        <a class="nav-link" href="{% url 'nuevo_producto' %}">Nuevo Producto</a>
-        <a class="nav-link" href="{% url 'listado_producto' %}">Listado de productos</a>
+        <!------------Barra de Navegacion-------------->
         
-        {% if user.is_authenticated %}
-        
-        <p class="nav-link">Bienvenid@:</p><a class="nav-link" style="color: rgb(43, 226, 186);">{{ user.username}}</a>
-        <a class="nav-link" href="{% url 'logout' %}">Salir</a>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="mainNav">
+          <div class="container">
 
-        {% else %}
-        <a class="nav-link" href="{% url 'login' %}">Iniciar sesion</a>
+            <a class="navbar-brand text-white"> App Stock</a>
 
-        {% endif %}
+            <button class="navbar-toggler" data-target="#menu" type="button" data-toggle="collapse">
+              <i class="fa fa-bars"></i>
+            </button>
 
-      </nav>
+            <div class="collapse navbar-collapse" id="menu">
+              <ul class="navbar-nav ml-auto">
+
+                <li class="navbar-item active">
+                  <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+
+                <li class="navbar-item">
+                  <a class="nav-link" href="{% url 'nuevo_producto' %}">Nuevo Producto</a>
+                </li>
+
+                <li class="navbar-item">
+                  <a class="nav-link" href="{% url 'listado_producto' %}">Listado de productos</a>
+
+                </li>
+
+                {% if user.is_authenticated %}
+
+                <li class="navbar-item">
+                  <a class="nav-link" style="color: rgb(43, 226, 186);"> Bienvenid@:</li>{{ user.username }}</a>
 
 
-    </div>
-  </header>
+                <li class="navbar-item">
+                  <a class="nav-link" href="{% url 'logout' %}">Salir</a>
+                </li>
 
-  <main role="main" class="inner cover" id="al">
+                {% else %}
+
+                <li class="navbar-item">
+                  <a class="nav-link" href="{% url 'login' %}">Iniciar sesion</a>
+                </li>
+
+                {% endif %}
+
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <br><br><br>
+ 
+
+    <!-------------- main-------------->
+
+    <main role="main" class="inner cover" id="al">
       <div class="container">
+
         {% block content %}
 
         {% endblock %}
       </div>
+    </main>
 
-  </main>
 
-  {% block footer %}   
-    <!-- Pié de página -->
+    <!------------ Pié de página ------------>
+
 
     <footer>
+      {% block footer %}
+
       <div class="container">
-      <div class="row">
+        <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-          <ul class="list-inline text-center">
+            <ul class="list-inline text-center">
               <li class="list-inline-item">
-              <a href="https://api.whatsapp.com/send?phone=541163660588"target="_blank">
+                <a href="https://api.whatsapp.com/send?phone=541163660588" target="_blank">
                   <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-whatsapp fa-stack-1x fa-inverse"></i>
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-whatsapp fa-stack-1x fa-inverse"></i>
                   </span>
-              </a>
+                </a>
               </li>
               <li class="list-inline-item">
-              <a href="https://github.com/diegobenitez89"target="_blank">
+                <a href="https://github.com/diegobenitez89" target="_blank">
                   <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
                   </span>
-              </a>
+                </a>
               </li>
               <li class="list-inline-item">
-              <a href="https://linkedin.com/in/diego-benitez-247a9b124"target="_blank">
+                <a href="https://linkedin.com/in/diego-benitez-247a9b124" target="_blank">
                   <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
                   </span>
-              </a>
+                </a>
               </li>
-          </ul>
-          <p>Copyright &copy; 2020 - Diego Benitez</p>
+            </ul>
+            <p>Copyright &copy; 2020 - Diego Benitez</p>
           </div>
+        </div>
       </div>
-      </div>
-  </footer>
-{% endblock %}
+    </footer>
+    {% endblock %}
 
-{% block javascript %}
-{% endblock %}
+    {% block javascript %}
+    {% endblock %}
 
-<script src="js/basico.js"></script>
+    <script src="{% static 'core/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'core/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <script src="js/basico.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
 </body>
+
 </html>

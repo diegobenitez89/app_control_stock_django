@@ -3,24 +3,23 @@
 
 
 {% block content %}
+<div class="container">
+   <h2>Nuevo Producto</h2>
 
-<h2>Nuevo Producto</h2>
-
-<form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
-
-
- {{ form|crispy }}
-
- <div class="float-right">
-    <input class="btn btn-info" type="reset" value="limpiar">
-    <input class="btn btn-success" type="submit" value="guardar">
-
- </div>
-   
+   <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
 
 
-</form>
+      {{ form|crispy }}
 
+      <div class="float-right">
+         <input class="btn btn-info" type="reset" value="limpiar">
+         <input class="btn btn-success" type="submit" value="guardar">
+
+      </div>
+
+
+
+   </form>
+</div>
 {{ mensaje }}
 {% endblock %}
-

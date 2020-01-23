@@ -28,7 +28,7 @@ html,
 body {
   height: 100%;
   background-color: #50858b;
-  
+ background-image: url(../img/cajas.jpg); 
   min-height: auto;
   background-attachment: fixed;
   background-size: cover;
@@ -38,7 +38,7 @@ body {
 body {
   display: -ms-flexbox;
   display: flex;
-  color: #fff;
+  color: #0d0e0d;
   text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
   
 }
@@ -109,4 +109,8 @@ body {
 .mastfoot {
   
   color: rgba(227, 232, 233, 0.5);
+}
+
+p{
+  color: white;
 }
